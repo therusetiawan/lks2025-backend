@@ -1,16 +1,16 @@
 # Use the official Golang image as a base
-FROM golang:1.20 as builder
+FROM golang:1.22 as builder
 
 WORKDIR /app
 
-# Copy go mod and sum files
-COPY go.mod go.sum ./
+# Initialize Go module
+RUN go mod init student-restapi
 
-# Download dependencies
-RUN go mod download
-
-# Copy the source code
+# Copy the source code (before downloading dependencies)
 COPY . .
+
+# Generate go.mod and go.sum by resolving dependencies
+RUN go mod tidy
 
 # Build the application
 RUN go build -o main .
