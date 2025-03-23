@@ -22,10 +22,6 @@ This is a simple CRUD application built with Golang, using:
 
 ---
 
-
-
----
-
 ## 1️⃣ Project Setup
 
 ### 1.1 Clone the Repository
@@ -40,7 +36,7 @@ Modify `docker-compose.yml`:
 services:
   app:
     build: .
-    container_name: golang_crud_app
+    container_name: lks2025cc-backend
     ports:
       - "8080:8080"
     environment:
